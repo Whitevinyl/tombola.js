@@ -4,6 +4,8 @@ Random/chance generation methods, geared towards creating procedural generation,
 
 -
 
+**Basic Generation**
+
 tombola.range( min, max );
 
 tombola.dice( sides, die );
@@ -16,6 +18,8 @@ tombola.percent( percentage );
 
 -
 
+**Weighting**
+
 tombola.weightedNumber( [weight1, weight2, etc...] );
 
 tombola.weightedItem( [item1, item2, etc...] , [weight1, weight2, etc...] );
@@ -24,11 +28,15 @@ tombola.weightedFunction( [function1, function2, etc...] , [weight1, weight2, et
 
 -
 
+**Clusters**
+
 tombola.cluster( min, max, spread, quantity );
 
 tombola.clusterFudge( min, max, strength, die, quantity );
 
 -
+
+**Persistent Deck**
 
 var DECK = new tombola.deck( [item1, item2, etc...] );
 
