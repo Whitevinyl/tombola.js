@@ -2,7 +2,7 @@
 
 Random/chance generation methods, geared towards creating procedural generation, generative art/music etc.
 
-***Basic Generation***
+**Basic Generation**
 -
 
 ```javascript
@@ -50,7 +50,7 @@ Randomly generates a true or false based on a probability percentage. e.g a 'per
 
 -
 
-***Weighting***
+**Weighting**
 -
 
 ```javascript
@@ -80,7 +80,7 @@ Randomly picks from an array of functions, using a weighted probability, and exe
 
 -
 
-***Clusters***
+**Clusters**
 -
 
 ```javascript
@@ -101,7 +101,7 @@ Randomly generates an array of whole numbers, which are clustered around a rando
 
 -
 
-***Persistent Deck***
+**Persistent Deck**
 -
 
 ```javascript
