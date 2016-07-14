@@ -28,7 +28,7 @@ tombola.fudge( strength, die );
 ```
 >*returns: integer*
 
-Randomly generates a positive or negative modifier (or zero), based on the concept of "Fudge dice".
+Randomly generates a positive or negative modifier (or zero), based on the concept of ["Fudge dice"](https://en.wikipedia.org/wiki/Fudge_&#40;role-playing_game_system&#41;#Fudge_dice). 
 
 -
 
