@@ -11,7 +11,7 @@ tombola.range( min, max );
 ```
 >*returns: integer*
 
-Randomly generates a whole number between 'min' & 'max'.
+Randomly generates a whole number in the range from 'min' to 'max'.
 
 -
 
