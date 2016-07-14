@@ -107,6 +107,7 @@ Randomly generates an array of whole numbers, which are clustered around a rando
 ```javascript
 var DECK = new tombola.deck( [item1, item2, etc...] );
 ```
+Creates an instance of tombola.deck(); It's a persistant deck/hat/tombola which can contain a set of items which can be randomly drawn from, added to, looked at or shuffled. A simple example would be if you wanted a set of names to be drawn from a hat in a random order and without repetition.
 
 -
 
@@ -115,6 +116,8 @@ DECK.draw( index? );
 ```
 >*returns: item*
 
+Selects an item from the deck, either randomly or at a given index, and removes the item from the deck so that it won't be drawn again.
+
 -
 
 ```javascript
@@ -122,17 +125,21 @@ DECK.look( index? );
 ```
 >*returns: item*
 
+Selects an item from the deck, either randomly or at a given index, but leaves the item in the deck so that it may be looked at or drawn again.
+
 -
 
 ```javascript
-DECK.insert( index? );
+DECK.insert( item, index? );
 ```
+Adds an item to the deck, either randomly or at a given index.
 
 -
 
 ```javascript
 DECK.shuffle();
 ```
+Randomly shuffles the order of the deck contents.
 
 -
 
@@ -140,4 +147,6 @@ DECK.shuffle();
 DECK.show();
 ```
 >*returns: item array*
+
+Simply returns a list of the deck contents in their current state.
 
