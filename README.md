@@ -10,7 +10,7 @@ tombola.range( min, max );
 ```
 >*returns: integer*
 
-Randomly generates a whole number between 'min' & 'max'
+Randomly generates a whole number between 'min' & 'max'.
 
 -
 
@@ -19,7 +19,7 @@ tombola.dice( sides, die );
 ```
 >*returns: integer*
 
-Randomly generates a whole number from the total of simulates dice rolls.
+Randomly generates a whole number from the total of simulated dice rolls.
 
 -
 
@@ -58,6 +58,8 @@ tombola.weightedNumber( [weight1, weight2, etc...] );
 ```
 >*returns: integer*
 
+Randomly generates a whole number with a weighted probability. e.g using weights of [10, 5, 5] would pick a number between 1 - 3, where 1 is twice as likely to be returned than either 2 or 3.
+
 -
 
 ```javascript
@@ -65,12 +67,16 @@ tombola.weightedItem( [item1, item2, etc...] , [weight1, weight2, etc...] );
 ```
 >*returns: item from array*
 
+Randomly picks from an array of items (can be strings, numbers, objects etc) with a weighted probability. e.g using the items ['cat', 'dog', 'tortoise'] and using weights of [10, 5, 5] would randomly return one of the pets, but 'cat' would be twice as likely to be returned than either 'dog' or 'tortoise'.
+
 -
 
 ```javascript
 tombola.weightedFunction( [function1, function2, etc...] , [weight1, weight2, etc...] );
 ```
 >*returns: executes a given function*
+
+Randomly picks from an array of functions, using a weighted probability, and executes that function. e.g using an array of functions [blur, fade, dissolve], and using weights of [10, 5, 5] would randomly call one of the given functions, but the function 'blur' would be twice as likely to be picked than either 'fade' or 'dissolve'.
 
 -
 
