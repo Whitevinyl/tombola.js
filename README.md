@@ -88,12 +88,16 @@ tombola.cluster( min, max, spread, quantity );
 ```
 >*returns: integer array*
 
+Randomly generates an array of whole numbers, which are clustered around a randomly selected point between 'min' and 'max'. 'spread' sets how wide the cluster is, e.g if the center of the cluster is 50, and 'spread' is set to 10, generated numbers can be anything from 40 to 60 (-10 and +10 of 50). The chance is evenly distributed.
+
 -
 
 ```javascript
 tombola.clusterFudge( min, max, strength, die, quantity );
 ```
 >*returns: integer array*
+
+Randomly generates an array of whole numbers, which are clustered around a randomly selected point between 'min' and 'max', same as tombola.cluster(); The difference is that chance is not evenly distributed, it can be weighted so that generated numbers are more heavily distributed around the center of the cluster. Higher 'strength and fewer 'die will give a more even distribution, while lower 'strength' and more 'die' will make a more centre-heavy cluster. 'strength' and 'die' refer to "FUDGE die" properties (see tombola.fudge();). 'strength' X 'die' = the total spread of the cluster.
 
 -
 
