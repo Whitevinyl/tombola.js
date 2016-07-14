@@ -1,10 +1,11 @@
 # tombola.js
 
-Random/chance generation methods, geared towards creating procedural generation, generative art/music etc.
+Random/chance generation methods, geared towards creating procedural generation, generative art/music etc. It's a simple set of functions put together for my own use, but hopefully useful to others. Features like weighted functions, and a persistent deck which can be drawn from, can simplify the process of creating interesting outcomes.
 
 **Basic Generation**
 -
 
+###range
 ```javascript
 tombola.range( min, max );
 ```
@@ -14,6 +15,7 @@ Randomly generates a whole number between 'min' & 'max'.
 
 -
 
+###dice
 ```javascript
 tombola.dice( sides, die );
 ```
@@ -23,6 +25,7 @@ Randomly generates a whole number from the total of simulated dice rolls.
 
 -
 
+###fudge
 ```javascript
 tombola.fudge( strength, die );
 ```
@@ -32,6 +35,7 @@ Randomly generates a positive or negative modifier (or zero), based on the conce
 
 -
 
+###chance
 ```javascript
 tombola.chance( chance, possibility );
 ```
@@ -41,6 +45,7 @@ Randomly generates a true or false based on a probability fraction, e.g a 'chanc
 
 -
 
+###percent
 ```javascript
 tombola.percent( percentage );
 ```
@@ -53,6 +58,7 @@ Randomly generates a true or false based on a probability percentage. e.g a 'per
 **Weighting**
 -
 
+###weightedNumber
 ```javascript
 tombola.weightedNumber( [weight1, weight2, etc...] );
 ```
@@ -62,6 +68,7 @@ Randomly generates a whole number with a weighted probability. e.g using weights
 
 -
 
+###weightedItem
 ```javascript
 tombola.weightedItem( [item1, item2, etc...] , [weight1, weight2, etc...] );
 ```
@@ -71,6 +78,7 @@ Randomly picks from an array of items (can be strings, numbers, objects etc) wit
 
 -
 
+###weightedFunction
 ```javascript
 tombola.weightedFunction( [function1, function2, etc...] , [weight1, weight2, etc...] );
 ```
@@ -83,6 +91,7 @@ Randomly picks from an array of functions, using a weighted probability, and exe
 **Clusters**
 -
 
+###cluster
 ```javascript
 tombola.cluster( min, max, spread, quantity );
 ```
@@ -92,6 +101,7 @@ Randomly generates an array of whole numbers, which are clustered around a rando
 
 -
 
+###clusterFudge
 ```javascript
 tombola.clusterFudge( min, max, strength, die, quantity );
 ```
@@ -104,6 +114,7 @@ Randomly generates an array of whole numbers, which are clustered around a rando
 **Persistent Deck**
 -
 
+###deck
 ```javascript
 var DECK = new tombola.deck( [item1, item2, etc...] );
 ```
@@ -111,6 +122,7 @@ Creates an instance of tombola.deck(); It's a persistant deck/hat/tombola which 
 
 -
 
+###draw
 ```javascript
 DECK.draw( index? );
 ```
@@ -120,6 +132,7 @@ Selects an item from the deck, either randomly or at a given index, and removes 
 
 -
 
+###look
 ```javascript
 DECK.look( index? );
 ```
@@ -129,6 +142,7 @@ Selects an item from the deck, either randomly or at a given index, but leaves t
 
 -
 
+###insert
 ```javascript
 DECK.insert( item, index? );
 ```
@@ -136,6 +150,7 @@ Adds an item to the deck, either randomly or at a given index.
 
 -
 
+###shuffle
 ```javascript
 DECK.shuffle();
 ```
@@ -143,6 +158,7 @@ Randomly shuffles the order of the deck contents.
 
 -
 
+###show
 ```javascript
 DECK.show();
 ```
