@@ -17,7 +17,7 @@ Randomly generates a whole number in the range from 'min' to 'max'.
 
 ###dice
 ```javascript
-tombola.dice( sides, die );
+tombola.dice( die, sides );
 ```
 >*returns: integer*
 
@@ -27,7 +27,7 @@ Randomly generates a whole number from the total of simulated dice rolls.
 
 ###fudge
 ```javascript
-tombola.fudge( strength, die );
+tombola.fudge( die, strength? );
 ```
 >*returns: integer*
 
@@ -93,7 +93,7 @@ Randomly picks from an array of functions, using a weighted probability, and exe
 
 ###cluster
 ```javascript
-tombola.cluster( min, max, spread, quantity );
+tombola.cluster( quantity, min, max, spread );
 ```
 >*returns: integer array*
 
@@ -103,7 +103,7 @@ Randomly generates an array of whole numbers, which are clustered around a rando
 
 ###clusterFudge
 ```javascript
-tombola.clusterFudge( min, max, strength, die, quantity );
+tombola.clusterFudge( quantity, min, max, die, strength? );
 ```
 >*returns: integer array*
 
