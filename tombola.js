@@ -37,9 +37,9 @@ Tombola.prototype.rangeArray = function(min,max,length) {
 
 // Returns a random whole number from simulated dice rolls //
 
-Tombola.prototype.dice = function(sides,die) {
-    sides = Math.round(sides);
+Tombola.prototype.dice = function(die,sides) {
     die = Math.round(die);
+    sides = Math.round(sides);
     var t = 0;
     for (var i=0; i<die; i++) {
         t += (1 + Math.floor(Math.random() * sides));
@@ -49,10 +49,10 @@ Tombola.prototype.dice = function(sides,die) {
 
 // Returns an array populated with random whole numbers from simulated dice rolls //
 
-Tombola.prototype.diceArray = function(sides,die,length) {
+Tombola.prototype.diceArray = function(die,sides,length) {
     var a = [];
     for (var i=0; i<length; i++) {
-        a.push(this.dice(sides,die));
+        a.push(this.dice(die,sides));
     }
     return a; // int array
 };
@@ -67,7 +67,7 @@ Tombola.prototype.diceArray = function(sides,die,length) {
 
 Tombola.prototype.fudge = function(die,strength) {
     die = Math.round(die);
-    strength = Math.round(strength);
+    strength = Math.round(strength) || 1;
     var t = 0;
     for (var i=0; i<die; i++) {
         t += (-strength + Math.floor(Math.random() * ((strength * 2) + 1)));
@@ -213,10 +213,10 @@ Tombola.prototype.weightedFunction = function(functions,weights) {
 // Returns an array of whole numbers which are randomly clustered within a min/max range //
 // an evenly distributed cluster width is set with 'spread' //
 
-Tombola.prototype.cluster = function(min,max,spread,length) {
+Tombola.prototype.cluster = function(quantity,min,max,spread) {
     var c = this.range(min,max);
     var a = [];
-    for (var i=0; i<length; i++) {
+    for (var i=0; i<quantity; i++) {
         a.push(c + this.range(-spread,spread));
     }
     return a; // int array
@@ -226,10 +226,11 @@ Tombola.prototype.cluster = function(min,max,spread,length) {
 // uneven cluster width is set with 'die' and 'strength' (die x strength = max possible width) //
 // the distribution is more weighted around the center using fudge rolls, more die = greater center weight //
 
-Tombola.prototype.clusterFudge = function(min,max,die,strength,length) {
+Tombola.prototype.clusterFudge = function(quantity,min,max,die,strength) {
+    strength = strength || 1;
     var c = this.range(min,max);
     var a = [];
-    for (var i=0; i<length; i++) {
+    for (var i=0; i<quantity; i++) {
         a.push(c + this.fudge(die,strength));
     }
     return a; // int array
