@@ -19,6 +19,11 @@ Tombola.prototype.range = function(min,max) {
     return Math.round(min + (Math.random() * (max - min))); // int
 };
 
+// Returns a random float number between 'min' and 'max' //
+
+Tombola.prototype.rangeFloat = function(min,max) {
+    return min + (Math.random() * (max - min)); // float
+};
 
 // Returns an array populated with random whole numbers between 'min' and 'max' //
 
@@ -28,6 +33,16 @@ Tombola.prototype.rangeArray = function(min,max,length) {
         a.push(this.range(min,max));
     }
     return a; // int array
+};
+
+// Returns an array populated with random float numbers between 'min' and 'max' //
+
+Tombola.prototype.rangeFloatArray = function(min,max,length) {
+    var a = [];
+    for (var i=0; i<length; i++) {
+        a.push(this.range(min,max));
+    }
+    return a; // float array
 };
 
 
@@ -75,6 +90,19 @@ Tombola.prototype.fudge = function(die,strength) {
     return t; // int
 };
 
+// Returns a random float positive or negative number from simulated fudge dice rolls //
+// 'strength' of 0.1 and 'die' of 3 gives a possible range of -0.3 to 0.3 //
+
+Tombola.prototype.fudgeFloat = function(die,strength) {
+    die = Math.round(die);
+    strength = strength || 1;
+    var t = 0;
+    for (var i=0; i<die; i++) {
+        t += (-strength + (Math.random() * (strength * 2)));
+    }
+    return t; // float
+};
+
 // Returns an array populated with random whole positive or negative numbers from simulated fudge dice rolls //
 
 Tombola.prototype.fudgeArray = function(die,strength,length) {
@@ -85,6 +113,15 @@ Tombola.prototype.fudgeArray = function(die,strength,length) {
     return a; // int array
 };
 
+// Returns an array populated with random float positive or negative numbers from simulated fudge dice rolls //
+
+Tombola.prototype.fudgeFloatArray = function(die,strength,length) {
+    var a = [];
+    for (var i=0; i<length; i++) {
+        a.push(this.fudgeFloat(die,strength));
+    }
+    return a; // float array
+};
 
 //-------------------------------------------------------------------------------------------
 //  CHANCE ROLL
@@ -133,6 +170,20 @@ Tombola.prototype.percentArray = function(percent,length) {
 
 
 //-------------------------------------------------------------------------------------------
+//  ITEM
+//-------------------------------------------------------------------------------------------
+
+// Returns a randomly selected item with equal probability //
+// 'items' is an array of items to be chosen from //
+
+Tombola.prototype.item = function(items) {
+    var l = items.length;
+    var n = Math.floor(Math.random() * l);
+    return items[n]; // item
+};
+
+
+//-------------------------------------------------------------------------------------------
 //  WEIGHTED NUMBER
 //-------------------------------------------------------------------------------------------
 
@@ -155,6 +206,7 @@ Tombola.prototype.weightedNumber = function(weights) {
         }
     }
 };
+
 
 //-------------------------------------------------------------------------------------------
 //  WEIGHTED ITEM
@@ -179,6 +231,7 @@ Tombola.prototype.weightedItem = function(items,weights) {
         }
     }
 };
+
 
 //-------------------------------------------------------------------------------------------
 //  WEIGHTED FUNCTION
