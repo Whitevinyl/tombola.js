@@ -349,3 +349,5 @@ RandomDeck.prototype.shuffle = function() {
 RandomDeck.prototype.show = function() {
     return this.contents;
 };
+
+module.exports = Tombola;

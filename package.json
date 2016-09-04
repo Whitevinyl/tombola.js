@@ -1,0 +1,27 @@
+{
+  "name": "tombola",
+  "version": "0.0.1",
+  "description": "methods for chance and randomisation.",
+  "main": "tombola.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Whitevinyl/tombola.js.git"
+  },
+  "keywords": [
+    "chance",
+    "random",
+    "procedural"
+  ],
+  "author": "Luke Twyman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Whitevinyl/tombola.js/issues"
+  },
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/Whitevinyl/tombola.js",
+  "dependencies": {
+  }
+}
