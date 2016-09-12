@@ -350,4 +350,138 @@ RandomDeck.prototype.show = function() {
     return this.contents;
 };
 
+
+//-------------------------------------------------------------------------------------------
+//  WEIGHTED DECK
+//-------------------------------------------------------------------------------------------
+
+// Creates a deck (hat/tombola) which can be drawn from, added to or shuffled //
+// 'contents' is an array of items to populate the deck with, 'weights' add weighting to
+// the chance, and 'instances' allows for multiple instances of each object. //
+
+
+Tombola.prototype.weightedDeck = function(contents, options) {
+    return new WeightedDeck(contents, options);
+};
+
+function WeightedDeck(contents, options) {
+    options = options || {};
+    this.contents = contents || [];
+    this.weights = options.weights || [];
+    this.instances = options.instances || [];
+
+    var i;
+    if (this.weights.length===0) {
+        for (i=0; i<contents.length; i++) {
+            this.weights.push(1);
+        }
+    }
+    if (this.instances.length===0) {
+        for (i=0; i<contents.length; i++) {
+            this.instances.push(1);
+        }
+    }
+}
+
+// Returns an item from the deck, randomly or at a given index, and removes that item from the deck //
+WeightedDeck.prototype.draw = function(index) {
+    if (this.contents.length>0) {
+
+        // no given index, do random weighting //
+        var l = this.contents.length;
+        if (!(index >=0 && index<l)) {
+            var totalWeight = 0;
+            for (var i=0; i<l; i++) {
+                totalWeight += this.weights[i] || 0;
+            }
+            var n = Math.random() * totalWeight;
+            var w = 0;
+            for (i=0; i<l; i++) {
+                w += this.weights[i] || 0;
+                if (n <= w) {
+                    index = i;
+                    break;
+                }
+            }
+        }
+        var item = this.contents[index];
+
+        // remove an instance //
+        this.instances[index] -= 1;
+        if (this.instances[index]<1) {
+            this.contents.splice(index,1);
+            this.weights.splice(index,1);
+            this.instances.splice(index,1);
+        }
+
+        return item;
+    } else {
+        return null;
+    }
+};
+
+// Returns an item from the deck, randomly or at a given index, the item stays in the deck //
+WeightedDeck.prototype.look = function(index) {
+    if (this.contents.length>0) {
+
+        // no given index, do random weighting //
+        var l = this.contents.length;
+        if (!(index >=0 && index<l)) {
+            var totalWeight = 0;
+            for (var i=0; i<l; i++) {
+                totalWeight += this.weights[i] || 0;
+            }
+            var n = Math.random() * totalWeight;
+            var w = 0;
+            for (i=0; i<l; i++) {
+                w += this.weights[i] || 0;
+                if (n <= w) {
+                    index = i;
+                    break;
+                }
+            }
+        }
+        return this.contents[index];
+    } else {
+        return null;
+    }
+};
+
+// Adds an item to the deck, randomly or at a given index //
+WeightedDeck.prototype.insert = function(item, options) {
+    options = options || {};
+    var index = options.index || Math.round(Math.random() * this.contents.length);
+    var weight = options.weight || 1;
+    var instances = options.instances || 1;
+    this.contents.splice(index,0,item);
+    this.weights.splice(index,0,weight);
+    this.instances.splice(index,0,instances);
+};
+
+// Shuffles the deck order //
+WeightedDeck.prototype.shuffle = function() {
+    var a = [];
+    var b = [];
+    var c = [];
+    var l = this.contents.length;
+    for (var i=0; i<l; i++) {
+        var index = Math.floor(Math.random() * this.contents.length);
+        a.push(this.contents[index]);
+        b.push(this.weights[index]);
+        c.push(this.instances[index]);
+        this.contents.splice(index,1);
+        this.weights.splice(index,1);
+        this.instances.splice(index,1);
+    }
+    this.contents = a;
+    this.weights = b;
+    this.instances = c;
+};
+
+// Returns an array of all contents of the deck //
+WeightedDeck.prototype.show = function() {
+    return this.contents;
+};
+
+
 module.exports = Tombola;
