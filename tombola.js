@@ -484,4 +484,7 @@ WeightedDeck.prototype.show = function() {
 };
 
 
-module.exports = Tombola;
+// npm export //
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+    module.exports = Tombola;
+}
