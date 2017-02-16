@@ -25,6 +25,26 @@ Randomly generates a float number in the range from 'min' to 'max'.
 
 -
 
+###chance
+```javascript
+tombola.chance( chance, possibility );
+```
+>*returns: boolean*
+
+Randomly generates a true or false based on a probability fraction, e.g a 'chance' of 1 and 'possibility' of 5 will give the function a 1 in 5 chance of returning true.
+
+-
+
+###percent
+```javascript
+tombola.percent( percentage );
+```
+>*returns: boolean*
+
+Randomly generates a true or false based on a probability percentage. e.g a 'percentage' of 25 will give the function a 25% chance of returning true.
+
+-
+
 ###dice
 ```javascript
 tombola.dice( die, sides );
@@ -52,26 +72,6 @@ tombola.fudgeFloat( die, strength? );
 >*returns: float*
 
 Randomly generates a float positive or negative modifier (or zero), based on the concept of ["Fudge dice"](https://en.wikipedia.org/wiki/Fudge_%28role-playing_game_system%29#Fudge_dice).
-
--
-
-###chance
-```javascript
-tombola.chance( chance, possibility );
-```
->*returns: boolean*
-
-Randomly generates a true or false based on a probability fraction, e.g a 'chance' of 1 and 'possibility' of 5 will give the function a 1 in 5 chance of returning true.
-
--
-
-###percent
-```javascript
-tombola.percent( percentage );
-```
->*returns: boolean*
-
-Randomly generates a true or false based on a probability percentage. e.g a 'percentage' of 25 will give the function a 25% chance of returning true.
 
 -
 
